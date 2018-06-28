@@ -20,16 +20,20 @@
             	}
         	
 ### 展示图
-![](screenshot/animation.gif)
-![](screenshot/ill1.png)
-![](screenshot/sc1.png)
-![](screenshot/sc2.png)
-![](screenshot/sc3.png)
-![](screenshot/sc4.png)
-![](screenshot/sc5.png)
-![](screenshot/sc6.png)
-![](screenshot/sc8.png)
-![](screenshot/sc9.png)
-![](screenshot/sc10.png)
-![](screenshot/sc11.png)
-![](screenshot/sc12.png)
+![](screenshot/animation.gif)  
+                       
+                       | NINJA                               | BUTTERFLY                          | VIOLIN                              |
+                       |:------------------------------------|:-----------------------------------|:-----------------------------------|
+                       | <img src="./screenshot/sc1.png" width="200">|<img src="./screenshot/sc2.png" width="200">|<img src="./screenshot/sc11.png" width="200">|
+                       
+                       | RIFLE                               | HEAR STYLE                         | TOOTH                              |
+                       |:------------------------------------|:-----------------------------------|:-----------------------------------|
+                       | <img src="./screenshot/sc4.png" width="200">|<img src="./screenshot/sc5.png" width="200">|<img src="./screenshot/sc6.png" width="200">|
+                       
+                       | CUCUMBER                            | STORM                              | DOGEZA                             |
+                       |:------------------------------------|:-----------------------------------|:-----------------------------------|
+                       | <img src="./screenshot/sc12.png" width="200">|<img src="./screenshot/sc8.png" width="200">|<img src="./screenshot/sc9.png" width="200">|
+                       
+                       | CAT                                 |
+                       |:------------------------------------|
+                       | <img src="./screenshot/sc10.png" width="200">|)
