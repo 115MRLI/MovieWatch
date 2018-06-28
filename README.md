@@ -27,7 +27,6 @@
 ![](screenshot/sc3.png)
 ![](screenshot/sc4.png)
 ![](screenshot/sc5.png)
-![](screenshot/sc6.png)
 ![](screenshot/sc8.png)
 ![](screenshot/sc9.png)
 ![](screenshot/sc10.png)
