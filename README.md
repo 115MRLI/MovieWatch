@@ -20,10 +20,10 @@
             	}
         	
 ### 展示图
-![](screenshot/animation.gif =200x)
-![](screenshot/ill1.png =200x)
-![](screenshot/sc1.png =200x)
-![](screenshot/sc2.png =200x)
+![](screenshot/animation.gif)
+![](screenshot/ill1.png)
+![](screenshot/sc1.png)
+![](screenshot/sc2.png)
 ![](screenshot/sc3.png)
 ![](screenshot/sc4.png)
 ![](screenshot/sc5.png)
