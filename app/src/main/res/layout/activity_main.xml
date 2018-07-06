@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/wel_bc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/motorcycle" />
+
     <movie.watch.loading.ColoringLoadingView
         android:id="@+id/main_loading"
         android:layout_width="300dp"
