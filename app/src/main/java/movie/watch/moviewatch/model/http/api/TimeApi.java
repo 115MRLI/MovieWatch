@@ -40,6 +40,6 @@ public interface TimeApi {
      * @return
      */
     @GET("Showtime/HotCitiesByCinema.api")
-    Call<List<Location>> getLocation();
+    Call<Location> getLocation();
 
 }

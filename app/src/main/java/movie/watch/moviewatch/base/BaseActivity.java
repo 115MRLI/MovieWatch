@@ -15,7 +15,9 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import movie.watch.moviewatch.R;
 import movie.watch.moviewatch.app.App;
+import movie.watch.moviewatch.utils.ThreadUtils;
 
 
 public abstract class BaseActivity extends FragmentActivity {
@@ -28,7 +30,7 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       Log.e(this.getClass()+"", this.getClass().getName() + "------>onCreate");
+        Log.e(this.getClass() + "", this.getClass().getName() + "------>onCreate");
         setContentView(getLayout());
         App.getInstance().registerActivity(this);
         mContext = this;
@@ -41,25 +43,25 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e(this.getClass()+"", this.getClass().getName() + "------>onStart");
+        Log.e(this.getClass() + "", this.getClass().getName() + "------>onStart");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e(this.getClass()+"", this.getClass().getName() + "------>onPause");
+        Log.e(this.getClass() + "", this.getClass().getName() + "------>onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.e(this.getClass()+"", this.getClass().getName() + "------>onStop");
+        Log.e(this.getClass() + "", this.getClass().getName() + "------>onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e(this.getClass()+"",this.getClass().getName() + "------>onDestroy");
+        Log.e(this.getClass() + "", this.getClass().getName() + "------>onDestroy");
         if (mUnBinder != null)
             mUnBinder.unbind();
         App.getInstance().unregisterActivity(this);
@@ -83,6 +85,7 @@ public abstract class BaseActivity extends FragmentActivity {
             win.setAttributes(winParams);
         }
     }
+
     protected void setWindowFullScreen() {
         //设置全屏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -92,6 +95,7 @@ public abstract class BaseActivity extends FragmentActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
     }
+
     /**
      * 展示弹窗
      *
@@ -124,6 +128,51 @@ public abstract class BaseActivity extends FragmentActivity {
 //            }
 //        });
         }
+    }
+
+    private MaterialDialog dialog;
+
+
+    /**
+     * Material样式进度条 Progress dialog.
+     *
+     * @param title the title
+     */
+    public void progressDialog(final String title) {
+        if (!this.isFinishing()) {
+            ThreadUtils.runOnMainThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (dialog == null) {
+                        dialog = new MaterialDialog.Builder(mContext)
+                                .title(title)
+                                .canceledOnTouchOutside(false).cancelable(false)
+                                .customView(R.layout.custom_view, true)
+                                .show();
+                    } else {
+                        dialog.setTitle(title);
+                        if (!dialog.isShowing()) {
+                            dialog.show();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 关闭进度弹窗
+     */
+    public void cancelDialog() {
+        ThreadUtils.runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                if (dialog != null) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+            }
+        });
     }
 
     /**

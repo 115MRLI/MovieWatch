@@ -21,9 +21,12 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import movie.watch.moviewatch.R;
 import movie.watch.moviewatch.base.BaseActivity;
+import movie.watch.moviewatch.presenter.HomePresenter;
+import movie.watch.moviewatch.presenter.impl.HomePresenterImpl;
+import movie.watch.moviewatch.view.contract.HomeContract;
 import rx.Observer;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity implements HomeContract {
     @BindView(R.id.frame)
     FrameLayout frame;
     @BindView(R.id.home_page)
@@ -49,6 +52,7 @@ public class HomeActivity extends BaseActivity {
     private List<ImageView> imageViews = new ArrayList<>();
     private int[] image = {R.mipmap.moive, R.mipmap.square, R.mipmap.me};
     private int[] imageselect = {R.mipmap.movie_no, R.mipmap.square_no, R.mipmap.me_no};
+    private HomePresenter presenter;
 
     @Override
     protected int getLayout() {
@@ -58,6 +62,9 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
+        presenter = new HomePresenterImpl();
+        presenter.attachView(this);
+        presenter.getLocation();
     }
 
     @Override
@@ -70,6 +77,13 @@ public class HomeActivity extends BaseActivity {
             onClick(linearLayout);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
+
     /**
      * 获取菜单
      */
@@ -113,6 +127,7 @@ public class HomeActivity extends BaseActivity {
             }
         }
     }
+
     /**
      * 防抖
      *
@@ -151,6 +166,7 @@ public class HomeActivity extends BaseActivity {
                     }
                 });
     }
+
     /**
      * 跳转到该页面
      *
