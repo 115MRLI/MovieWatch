@@ -2,7 +2,6 @@ package movie.watch.moviewatch.presenter.impl;
 
 import android.util.Log;
 
-import java.util.List;
 
 import movie.watch.moviewatch.model.bean.Location;
 import movie.watch.moviewatch.model.http.response.TimeModel;
